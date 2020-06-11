@@ -13,9 +13,9 @@ import Oops from "../../pages/oops";
 // Export
 function App() {
 	return (
-		<div className="container">
-			<Router>
-				<Navbar />
+		<Router>
+			<Navbar />
+			<div className="container">
 				<Switch>
 					<Route exact path={["/", "/Book-Search"]}>
 						<Home />
@@ -27,8 +27,8 @@ function App() {
 						<Oops />
 					</Route>
 				</Switch>
-			</Router>
-		</div>
+			</div>
+		</Router>
 	);
 }
 

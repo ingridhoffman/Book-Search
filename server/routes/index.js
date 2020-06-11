@@ -8,7 +8,7 @@ const googleRoutes = require("./google");
 
 // Routes
 router.use("/db", dbRoutes);
-router.use("/api", googleRoutes);
+router.use("/google", googleRoutes);
 router.use((req, res) =>
 	res.sendFile(path.join(__dirname, "../client/build/index.html"))
 );

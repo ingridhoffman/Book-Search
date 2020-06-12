@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 // Local
-const routes = require("./routes");
+const routes = require("./routes-controller");
 
 // Express
 const app = express();

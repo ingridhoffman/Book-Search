@@ -1,1 +1,1 @@
-export { default } from "./results.js";
+export { Results, ResultCard } from "./results.js";

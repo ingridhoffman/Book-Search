@@ -18,12 +18,6 @@ function App() {
 	// Search state
 	const [searchFor, setSearchFor] = useState();
 	const [searchResults, setSearchResults] = useState([]);
-	console.log("search: ", searchResults);
-
-	// Show search results
-	// useEffect(() => {
-	//
-	// }, []);
 
 	// Capture search input
 	function handleInput(event) {
@@ -34,9 +28,28 @@ function App() {
 	const handleSearch = (event) => {
 		event.preventDefault();
 		API.search(searchFor)
-			.then((results) => setSearchResults(results.data.items))
+			.then((results) => {
+				const resultArray = results.data.items.map((item) => {
+					const title = item.volumeInfo.title;
+					const authorArray = item.volumeInfo.authors;
+					let authors = "";
+					authorArray.forEach((name) => (authors += `${name} `));
+					const description = item.volumeInfo.description;
+					const image = item.volumeInfo.imageLinks.thumbnail;
+					const link = item.volumeInfo.infoLink;
+					return { title, authors, description, image, link };
+				});
+				setSearchResults(resultArray);
+			})
 			.catch((err) => console.log(err));
 	};
+
+	function saveBook(event) {
+		event.preventDefault();
+		API.save(searchResults[event.target.id])
+			.then((res) => console.log("res: ", res))
+			.catch((err) => console.log(err));
+	}
 
 	return (
 		<Router>
@@ -47,7 +60,7 @@ function App() {
 						{!searchResults.length ? (
 							<Home handleInput={handleInput} handleSearch={handleSearch} />
 						) : (
-							<GoogleBooks resultArray={searchResults} />
+							<GoogleBooks resultArray={searchResults} save={saveBook} />
 						)}
 					</Route>
 					<Route path="/mybooks">

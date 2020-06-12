@@ -5,24 +5,24 @@ import React from "react";
 import { Results, ResultCard } from "../components/Results";
 
 // Page Content
-function GoogleBooks({ resultArray }) {
+function GoogleBooks({ resultArray, save }) {
 	console.log("array: ", resultArray);
 	return (
 		<>
 			<h2>Books matching your search:</h2>
 			<Results>
-				{resultArray.map((result) => {
-					const authorArray = result.volumeInfo.authors;
-					let authors = "";
-					authorArray.forEach((name) => (authors += `${name} `));
-					console.log("result:", result.volumeInfo.title);
+				{resultArray.map((result, index) => {
 					return (
 						<ResultCard
-							title={result.volumeInfo.title}
-							authors={authors}
-							description={result.volumeInfo.description}
-							image={result.volumeInfo.imageLinks.thumbnail}
-							link={result.volumeInfo.infoLink}
+							type="google"
+							key={result.index}
+							id={index}
+							title={result.title}
+							authors={result.authors}
+							description={result.description}
+							image={result.image}
+							link={result.link}
+							save={save}
 						/>
 					);
 				})}

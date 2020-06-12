@@ -15,7 +15,17 @@ export function Results({ children }) {
 	return <CardDeck className="flex-column">{children}</CardDeck>;
 }
 
-export function ResultCard({ title, authors, description, image, link }) {
+export function ResultCard({
+	type,
+	key,
+	id,
+	title,
+	authors,
+	description,
+	image,
+	link,
+	save,
+}) {
 	return (
 		<Card>
 			<Navbar bg="light" variant="light" className="justify-content-between">
@@ -23,18 +33,24 @@ export function ResultCard({ title, authors, description, image, link }) {
 					<Card.Title>{title}</Card.Title>
 					<Card.Subtitle className="mb-2 text-muted">{authors}</Card.Subtitle>
 				</div>
-				{/* will need ternary to handle results type and customize buttons per page */}
 				<Form inline>
-					<Button variant="outline-dark" size="sm" className="mr-sm-2">
+					<Button
+						variant="outline-dark"
+						size="sm"
+						className="mr-sm-2"
+						href={link}
+						target="_blank">
 						View
 					</Button>
-					{/* will need ternary to handle results type and customize buttons per page */}
-					<Button variant="outline-dark" size="sm">
-						Save
-					</Button>
-					<Button variant="outline-dark" size="sm">
-						Remove
-					</Button>
+					{type === "google" ? (
+						<Button variant="outline-dark" size="sm" id={id} onClick={save}>
+							Save
+						</Button>
+					) : (
+						<Button variant="outline-dark" size="sm" id={id}>
+							Remove
+						</Button>
+					)}
 				</Form>
 			</Navbar>
 			<Card.Body className="horizontal">

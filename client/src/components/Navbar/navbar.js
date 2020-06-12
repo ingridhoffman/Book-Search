@@ -2,8 +2,6 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 // Local
 import "./navbar.css";
@@ -25,18 +23,9 @@ function NavMenu() {
 					Google Books Search
 				</Navbar.Brand>
 				<Nav className="mr-auto">
-					<Nav.Link href="/">Home</Nav.Link>
+					<Nav.Link href="/">Search</Nav.Link>
 					<Nav.Link href="/mybooks">My Books</Nav.Link>
 				</Nav>
-				<Form inline>
-					<Form.Control
-						as="input"
-						type="text"
-						placeholder="Search for Books"
-						className="mr-sm-2"
-					/>
-					<Button variant="outline-light">Search</Button>
-				</Form>
 			</div>
 		</Navbar>
 	);

@@ -2,14 +2,17 @@
 import React from "react";
 
 // Local
-import { Results, ResultCard } from "../components/Results";
+import Search from "../components/Search";
+import Reading from "../assets/undraw_book_lover_mkck.svg";
 
 // Page Content
-function Home(resultArray) {
-	console.log(resultArray);
+function Home({ handleInput, handleSearch }) {
 	return (
 		<>
-			<h2>Home</h2>
+			<div className="text-center pt-5">
+				<img src={Reading} alt="Reading a book" width="60%" />
+			</div>
+			<Search handleInput={handleInput} handleSearch={handleSearch} />
 		</>
 	);
 }

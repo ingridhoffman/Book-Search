@@ -40,12 +40,12 @@ function App() {
 
 	return (
 		<Router>
-			<Navbar handleInput={handleInput} handleSearch={handleSearch} />
+			<Navbar />
 			<div className="container">
 				<Switch>
 					<Route exact path={["/", "/Book-Search"]}>
 						{!searchResults.length ? (
-							<Home />
+							<Home handleInput={handleInput} handleSearch={handleSearch} />
 						) : (
 							<GoogleBooks resultArray={searchResults} />
 						)}

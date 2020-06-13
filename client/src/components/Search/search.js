@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 
 function Search({ handleInput, handleSearch }) {
 	return (
-		<Form className="mt-5">
+		<Form className="mt-5" onSubmit={handleSearch}>
 			<InputGroup className="mb-3">
 				<Form.Control
 					as="input"
@@ -16,10 +16,7 @@ function Search({ handleInput, handleSearch }) {
 					onChange={handleInput}
 				/>
 				<InputGroup.Append>
-					<Button
-						variant="outline-dark"
-						className="px-sm-5"
-						onClick={handleSearch}>
+					<Button variant="outline-dark" type="submit" className="px-sm-5">
 						Search
 					</Button>
 				</InputGroup.Append>

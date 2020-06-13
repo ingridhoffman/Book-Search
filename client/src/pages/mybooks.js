@@ -1,20 +1,44 @@
 // Global
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Local
+import API from "../utils/API";
 import { Results, ResultCard } from "../components/Results";
 import Bookstack from "../assets/undraw_book_lover_mkck.svg";
 
 // Page Content
-function Books({ resultArray, remove }) {
-	console.log("array: ", resultArray);
+function Books() {
+	// Set states
+	const [savedBooks, setSavedBooks] = useState([]);
+
+	// Get books from database
+	useEffect(() => {
+		getBooks();
+	}, []);
+
+	// Get all books from database
+	const getBooks = () => {
+		API.get()
+			.then((res) => setSavedBooks(res.data))
+			.catch((err) => console.log(err));
+	};
+
+	// Remove book from database
+	const removeBook = (event) => {
+		event.preventDefault();
+		console.log(savedBooks[0]);
+		API.remove(event.target.id)
+			.then((res) => getBooks())
+			.catch((err) => console.log(err));
+	};
+
 	return (
-		<>
+		<div className="container">
 			<div className="text-center my-3">
 				<img src={Bookstack} alt="Reading a book" width="30%" />
 			</div>
 			<Results>
-				{resultArray.map((result) => {
+				{savedBooks.map((result) => {
 					return (
 						<ResultCard
 							key={result._id}
@@ -24,12 +48,12 @@ function Books({ resultArray, remove }) {
 							description={result.description}
 							image={result.image}
 							link={result.link}
-							remove={remove}
+							remove={removeBook}
 						/>
 					);
 				})}
 			</Results>
-		</>
+		</div>
 	);
 }
 

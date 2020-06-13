@@ -62,13 +62,7 @@ export function ResultCard({
 			</Navbar>
 			<Card.Body>
 				<Media>
-					<img
-						width={120}
-						height={120}
-						className="mr-3"
-						src={image}
-						alt="Book Thumbnail"
-					/>
+					<img width={120} className="mr-3" src={image} alt="Book Thumbnail" />
 					<Media.Body>
 						<p>{description}</p>
 					</Media.Body>

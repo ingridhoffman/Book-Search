@@ -7,7 +7,7 @@ const db = require("../database");
 // Get
 router.route("/").get((req, res) => {
 	db.Book.find(req.query)
-		.sort({ title: 1 })
+		.sort({ added: -1 })
 		.then((results) => res.json(results))
 		.catch((err) => res.status(422).json(err));
 });

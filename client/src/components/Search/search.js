@@ -12,6 +12,7 @@ function Search({ handleInput, handleSearch }) {
 					as="input"
 					type="text"
 					placeholder="Search for Books"
+					aria-label="search for books"
 					size="lg"
 					onChange={handleInput}
 				/>

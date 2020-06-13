@@ -12,7 +12,12 @@ function NavMenu() {
 		<Navbar bg="dark" variant="dark" className="mt-2 mb-5 pt-4">
 			<div className="container">
 				<Navbar.Brand href="/" className="mr-sm-4">
-					<img alt="" src={Logo} width="30" className="d-inline-block mr-2" />
+					<img
+						alt="logo"
+						src={Logo}
+						width="30"
+						className="d-inline-block mr-2"
+					/>
 					Google Books Search
 				</Navbar.Brand>
 				<Nav className="mr-auto">

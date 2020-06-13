@@ -18,6 +18,12 @@ function App() {
 	// Search state
 	const [searchFor, setSearchFor] = useState();
 	const [searchResults, setSearchResults] = useState([]);
+	const [savedBooks, setSavedBooks] = useState([]);
+
+	// Get books from database
+	useEffect(() => {
+		getBooks();
+	}, []);
 
 	// Capture search input
 	function handleInput(event) {
@@ -29,13 +35,17 @@ function App() {
 		event.preventDefault();
 		API.search(searchFor)
 			.then((results) => {
+				console.log("results: ", results.data.items);
 				const resultArray = results.data.items.map((item) => {
 					const title = item.volumeInfo.title;
-					const authorArray = item.volumeInfo.authors;
-					let authors = "";
-					authorArray.forEach((name) => (authors += `${name} `));
+					const authors = item.volumeInfo.authors
+						? item.volumeInfo.authors.join(", ")
+						: "";
+					console.log("authors: ", item.volumeInfo.authors);
 					const description = item.volumeInfo.description;
-					const image = item.volumeInfo.imageLinks.thumbnail;
+					const image = item.volumeInfo.imageLinks
+						? item.volumeInfo.imageLinks.thumbnail
+						: "";
 					const link = item.volumeInfo.infoLink;
 					return { title, authors, description, image, link };
 				});
@@ -44,10 +54,26 @@ function App() {
 			.catch((err) => console.log(err));
 	};
 
+	// Save google book to database
 	function saveBook(event) {
 		event.preventDefault();
 		API.save(searchResults[event.target.id])
 			.then((res) => console.log("res: ", res))
+			.catch((err) => console.log(err));
+	}
+
+	// Get all books from database
+	function getBooks() {
+		API.get()
+			.then((res) => setSavedBooks(res.data))
+			.catch((err) => console.log(err));
+	}
+
+	// Remove book from database
+	function removeBook(event) {
+		event.preventDefault();
+		API.remove(event.target.id)
+			.then((res) => getBooks())
 			.catch((err) => console.log(err));
 	}
 
@@ -64,7 +90,7 @@ function App() {
 						)}
 					</Route>
 					<Route path="/mybooks">
-						<MyBooks />
+						<MyBooks resultArray={savedBooks} remove={removeBook} />
 					</Route>
 					<Route>
 						<Oops />

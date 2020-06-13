@@ -15,7 +15,7 @@ function GoogleBooks({ resultArray, save }) {
 					return (
 						<ResultCard
 							type="google"
-							key={result.index}
+							key={result.link}
 							id={index}
 							title={result.title}
 							authors={result.authors}

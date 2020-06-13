@@ -2,14 +2,30 @@
 import React from "react";
 
 // Local
-import Results from "../components/Results";
+import { Results, ResultCard } from "../components/Results";
 
 // Page Content
-function Books() {
+function Books({ resultArray, remove }) {
+	console.log("array: ", resultArray);
 	return (
 		<>
 			<h2>Reading List:</h2>
-			<Results />
+			<Results>
+				{resultArray.map((result) => {
+					return (
+						<ResultCard
+							key={result._id}
+							id={result._id}
+							title={result.title}
+							authors={result.authors}
+							description={result.description}
+							image={result.image}
+							link={result.link}
+							remove={remove}
+						/>
+					);
+				})}
+			</Results>
 		</>
 	);
 }

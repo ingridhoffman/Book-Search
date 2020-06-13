@@ -17,7 +17,6 @@ export function Results({ children }) {
 
 export function ResultCard({
 	type,
-	key,
 	id,
 	title,
 	authors,
@@ -25,6 +24,7 @@ export function ResultCard({
 	image,
 	link,
 	save,
+	remove,
 }) {
 	return (
 		<Card>
@@ -47,7 +47,7 @@ export function ResultCard({
 							Save
 						</Button>
 					) : (
-						<Button variant="outline-dark" size="sm" id={id}>
+						<Button variant="outline-dark" size="sm" id={id} onClick={remove}>
 							Remove
 						</Button>
 					)}

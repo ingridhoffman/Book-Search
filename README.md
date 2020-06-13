@@ -5,6 +5,8 @@ them to their own personal library and/or view the books in Google Play.
 
 <img src="https://github.com/ingridhoffman/Book-Search/blob/master/screenshot.png" alt="app screenshot" width=90% />
 
+View demo: https://search-for-google-books.herokuapp.com/
+
 ### Search
 
 The Search page features a single multi-use search input and submit button.

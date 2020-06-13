@@ -1,5 +1,4 @@
 {
-	"homepage": "http://gitname.github.io/Book-Search",
 	"name": "google-book-search",
 	"version": "0.1.0",
 	"private": true,
@@ -14,10 +13,9 @@
 		"react-scripts": "3.4.1"
 	},
 	"scripts": {
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"install": "npm install",
+		"build": "npm run install && react-scripts build",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {

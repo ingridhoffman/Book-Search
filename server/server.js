@@ -16,7 +16,7 @@ app.use(express.json());
 // Static assets
 if (process.env.NODE_ENV === "production") {
 	console.log(process.env.NODE_ENV);
-	app.use(express.static("../client/build"));
+	app.use(express.static("./build"));
 }
 // Routes
 app.use(routes);

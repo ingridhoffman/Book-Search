@@ -15,7 +15,8 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"install": "npm install",
-		"build": "npm run install && react-scripts build",
+		"prebuild": "npm run install",
+		"build": "react-scripts build",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {

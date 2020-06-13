@@ -1,6 +1,9 @@
 {
 	"name": "google-book-search",
 	"version": "1.0.0",
+	"engines": {
+		"node": "12.16.1"
+	},
 	"main": "./server/server.js",
 	"scripts": {
 		"heroku-postbuild": "cd ./server && npm run build"

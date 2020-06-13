@@ -3,13 +3,19 @@ import React from "react";
 
 // Local
 import { Results, ResultCard } from "../components/Results";
+import Bookshelf from "../assets/undraw_bookshelves_xekd.svg";
 
 // Page Content
 function GoogleBooks({ resultArray, save }) {
-	console.log("array: ", resultArray);
 	return (
 		<>
-			<h2>Books matching your search:</h2>
+			<div className="text-center my-3">
+				<img
+					src={Bookshelf}
+					alt="Looking for a book on the bookshelf"
+					width="30%"
+				/>
+			</div>
 			<Results>
 				{resultArray.map((result, index) => {
 					return (

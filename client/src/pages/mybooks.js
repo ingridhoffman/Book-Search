@@ -3,13 +3,16 @@ import React from "react";
 
 // Local
 import { Results, ResultCard } from "../components/Results";
+import Bookstack from "../assets/undraw_book_lover_mkck.svg";
 
 // Page Content
 function Books({ resultArray, remove }) {
 	console.log("array: ", resultArray);
 	return (
 		<>
-			<h2>Reading List:</h2>
+			<div className="text-center my-3">
+				<img src={Bookstack} alt="Reading a book" width="30%" />
+			</div>
 			<Results>
 				{resultArray.map((result) => {
 					return (

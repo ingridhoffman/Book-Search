@@ -7,9 +7,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Media from "react-bootstrap/Media";
 
-// Local
-import "./results.css";
-
 // Export function
 export function Results({ children }) {
 	return <CardDeck className="flex-column">{children}</CardDeck>;
@@ -27,7 +24,7 @@ export function ResultCard({
 	remove,
 }) {
 	return (
-		<Card>
+		<Card className="mt-3">
 			<Navbar bg="light" variant="light" className="justify-content-between">
 				<div>
 					<Card.Title>{title}</Card.Title>
@@ -37,23 +34,33 @@ export function ResultCard({
 					<Button
 						variant="outline-dark"
 						size="sm"
-						className="mr-sm-2"
+						className="px-3 mr-2"
 						href={link}
 						target="_blank">
 						View
 					</Button>
 					{type === "google" ? (
-						<Button variant="outline-dark" size="sm" id={id} onClick={save}>
+						<Button
+							variant="outline-dark"
+							size="sm"
+							className="px-3"
+							id={id}
+							onClick={save}>
 							Save
 						</Button>
 					) : (
-						<Button variant="outline-dark" size="sm" id={id} onClick={remove}>
+						<Button
+							variant="outline-dark"
+							size="sm"
+							className="px-3"
+							id={id}
+							onClick={remove}>
 							Remove
 						</Button>
 					)}
 				</Form>
 			</Navbar>
-			<Card.Body className="horizontal">
+			<Card.Body>
 				<Media>
 					<img
 						width={120}

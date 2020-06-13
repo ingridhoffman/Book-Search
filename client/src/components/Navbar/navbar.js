@@ -4,22 +4,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 // Local
-import "./navbar.css";
 import Logo from "../../assets/Books-icon.png";
 
 // Export function
 function NavMenu() {
 	return (
-		<Navbar bg="dark" variant="dark" className="mt-1 mb-5 pt-4">
+		<Navbar bg="dark" variant="dark" className="mt-2 mb-5 pt-4">
 			<div className="container">
-				<Navbar.Brand>
-					<img
-						alt=""
-						src={Logo}
-						width="30"
-						height="30"
-						className="d-inline-block align-top"
-					/>
+				<Navbar.Brand href="/" className="mr-sm-4">
+					<img alt="" src={Logo} width="30" className="d-inline-block mr-2" />
 					Google Books Search
 				</Navbar.Brand>
 				<Nav className="mr-auto">

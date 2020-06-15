@@ -8,6 +8,7 @@ import Search from "../components/Search";
 import { Results, ResultCard } from "../components/Results";
 import Reading from "../assets/undraw_reading_book_4wjf.svg";
 import Bookshelf from "../assets/undraw_bookshelves_xekd.svg";
+import Placeholder from "../assets//Books-icon.png";
 
 // Page Content
 function Home() {
@@ -41,9 +42,10 @@ function Home() {
 				? item.volumeInfo.authors.join(", ")
 				: "";
 			const description = item.volumeInfo.description;
-			const image = item.volumeInfo.imageLinks
-				? item.volumeInfo.imageLinks.thumbnail
-				: "https://lh3.googleusercontent.com/proxy/k498hMB_8oMI8KsnAgC24m5DvO7P30Nlal3XsdyOrpP0ChFuTlw1qPe6mLwNIWxjm68roSmE2wT38N_cZtZ_g56hC4dR_Ds0cpHagsxYw69tgRAOK0jkH4fZPOMR-sERSePstuW8rnX9gtqgJY39BQ";
+			const image =
+				item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
+					? item.volumeInfo.imageLinks.thumbnail
+					: Placeholder;
 			const link = item.volumeInfo.infoLink;
 			return { title, authors, description, image, link };
 		});

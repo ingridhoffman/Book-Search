@@ -25,6 +25,10 @@ options to View or Remove the book.
 
 **Delete** removes the book from the users database of saved books.
 
+## Known Issues
+
+Lacks notification that book has been saved - need to add toast and change "save" button to "saved"
+
 ## Credits
 
 Open source illustrations from https://undraw.co/

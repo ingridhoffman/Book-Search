@@ -1,5 +1,6 @@
 // Global
 import React, { useState, useEffect } from "react";
+import Alert from "react-bootstrap/Alert";
 
 // Local
 import API from "../utils/API";
@@ -26,7 +27,6 @@ function Books() {
 	// Remove book from database
 	const removeBook = (event) => {
 		event.preventDefault();
-		console.log(savedBooks[0]);
 		API.remove(event.target.id)
 			.then((res) => getBooks())
 			.catch((err) => console.log(err));
@@ -37,22 +37,28 @@ function Books() {
 			<div className="text-center my-3">
 				<img src={Bookstack} alt="Reading a book" width="30%" />
 			</div>
-			<Results>
-				{savedBooks.map((result) => {
-					return (
-						<ResultCard
-							key={result._id}
-							id={result._id}
-							title={result.title}
-							authors={result.authors}
-							description={result.description}
-							image={result.image}
-							link={result.link}
-							remove={removeBook}
-						/>
-					);
-				})}
-			</Results>
+			{!savedBooks.length ? (
+				<Alert variant="success">
+					<p>No books in your library.</p>
+				</Alert>
+			) : (
+				<Results>
+					{savedBooks.map((result) => {
+						return (
+							<ResultCard
+								key={result._id}
+								id={result._id}
+								title={result.title}
+								authors={result.authors}
+								description={result.description}
+								image={result.image}
+								link={result.link}
+								remove={removeBook}
+							/>
+						);
+					})}
+				</Results>
+			)}
 		</div>
 	);
 }

@@ -12,18 +12,18 @@ View demo: https://search-for-google-books.herokuapp.com/
 The Search page features a single multi-use search input and submit button.
 Results of the search are displayed with options to View or Save the book.
 
-**View** navigates the user to the Google Play url.
+- **View** navigates the user to the Google Play url.
 
-**Save** adds the book to the users database of saved books.
+- **Save** adds the book to the users database of saved books.
 
 ### My Books
 
 The My Books page displays all books that have been saved by the user with
 options to View or Remove the book.
 
-**View** navigates the user to the Google Play url.
+- **View** navigates the user to the Google Play url.
 
-**Delete** removes the book from the users database of saved books.
+- **Delete** removes the book from the users database of saved books.
 
 ## Known Issues
 

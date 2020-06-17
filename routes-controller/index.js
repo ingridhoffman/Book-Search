@@ -10,7 +10,7 @@ const googleRoutes = require("./google");
 router.use("/db", dbRoutes);
 router.use("/google", googleRoutes);
 router.use((req, res) =>
-	res.sendFile(path.join(__dirname, "client/build/index.html"))
+	res.sendFile(path.join(__dirname, "./client/build/index.html"))
 );
 
 module.exports = router;

@@ -18,7 +18,7 @@ function App() {
 				<Route exact path={["/", "/Book-Search"]}>
 					<Home />
 				</Route>
-				<Route path="/mybooks">
+				<Route exact path="/mybooks">
 					<MyBooks />
 				</Route>
 				<Route>

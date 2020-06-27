@@ -5,7 +5,7 @@ them to their own personal library and/or view the books in Google Play.
 
 <img src="https://github.com/ingridhoffman/Book-Search/blob/master/screenshot.png" alt="app screenshot" width=90% />
 
-View demo: https://search-for-google-books.herokuapp.com/
+# Application
 
 ### Search
 
@@ -25,14 +25,18 @@ options to View or Remove the book.
 
 - **Delete** removes the book from the users database of saved books.
 
+## Usage
+
+View demo: https://search-for-google-books.herokuapp.com/
+
 ## Known Issues
 
 Lacks notification that book has been saved - need to add toast and change "save" button to "saved"
 
-## Credits
+# Credits
 
 Open source illustrations from https://undraw.co/
 
-## License
+# License
 
 MIT © Ingrid Hoffman

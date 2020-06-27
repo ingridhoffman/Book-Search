@@ -25,13 +25,31 @@ options to View or Remove the book.
 
 - **Delete** removes the book from the users database of saved books.
 
-## Usage
-
-View demo: https://search-for-google-books.herokuapp.com/
-
 ## Known Issues
 
 Lacks notification that book has been saved - need to add toast and change "save" button to "saved"
+
+# Usage
+
+### Demo:
+
+https://search-for-google-books.herokuapp.com/
+
+### Install
+
+Download application package and open in Node.js
+
+Install node dependencies:
+
+```
+npm install
+```
+
+Start the application:
+
+```
+npm run start
+```
 
 # Credits
 

@@ -1,3 +1,5 @@
+/** @format */
+
 // Global
 const express = require("express");
 const mongoose = require("mongoose");
@@ -22,13 +24,11 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
+mongoose.connect(process.env.DB_URI || "mongodb://localhost/googlebooks", {
 	useNewUrlParser: true,
 });
 const connection = mongoose.connection;
-connection.once("open", () =>
-	console.log("MongoDB database connection established")
-);
+connection.once("open", () => console.log("MongoDB database connection established"));
 
 // Start API server
 app.listen(PORT, function () {
